@@ -149,6 +149,9 @@ public class LuaNextTranspiler implements Stubs.ILuaTranspiler {
 
             if (fileAbs.startsWith(sourceAbs)) {
                 String relative = fileAbs.substring(sourceAbs.length());
+                if (relative.startsWith("/") || relative.startsWith("\\")) {
+                    relative = relative.substring(1);
+                }
                 return "/" + relative.replace(File.separatorChar, '/');
             }
         } catch (IOException e) {

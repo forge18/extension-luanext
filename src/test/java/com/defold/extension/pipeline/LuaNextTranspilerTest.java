@@ -39,22 +39,22 @@ public class LuaNextTranspilerTest {
 
     @Test
     public void testParseSeverityError() {
-        assertEquals(Issue.Severity.ERROR, parseSeverity("error"));
+        assertEquals(Stubs.Issue.Severity.ERROR, parseSeverity("error"));
     }
 
     @Test
     public void testParseSeverityWarning() {
-        assertEquals(Issue.Severity.WARNING, parseSeverity("warning"));
+        assertEquals(Stubs.Issue.Severity.WARNING, parseSeverity("warning"));
     }
 
     @Test
     public void testParseSeverityInfo() {
-        assertEquals(Issue.Severity.INFO, parseSeverity("info"));
+        assertEquals(Stubs.Issue.Severity.INFO, parseSeverity("info"));
     }
 
     @Test
     public void testParseSeverityUnknownDefaultsToError() {
-        assertEquals(Issue.Severity.ERROR, parseSeverity("unknown"));
+        assertEquals(Stubs.Issue.Severity.ERROR, parseSeverity("unknown"));
     }
 
     @Test
@@ -63,18 +63,18 @@ public class LuaNextTranspilerTest {
                         "warning [/path/to/test.luax:20:5]: Unused variable x [W2001]";
 
         File sourceDir = new File("/path/to");
-        List<Issue> issues = parseErrors(output, sourceDir);
+        List<Stubs.Issue> issues = parseErrors(output, sourceDir);
 
         assertEquals(2, issues.size());
 
-        Issue error = issues.get(0);
-        assertEquals(Issue.Severity.ERROR, error.severity);
+        Stubs.Issue error = issues.get(0);
+        assertEquals(Stubs.Issue.Severity.ERROR, error.severity);
         assertEquals("/test.luax", error.resourcePath);
         assertEquals(15, error.lineNumber);
         assertTrue(error.message.contains("Type mismatch"));
 
-        Issue warning = issues.get(1);
-        assertEquals(Issue.Severity.WARNING, warning.severity);
+        Stubs.Issue warning = issues.get(1);
+        assertEquals(Stubs.Issue.Severity.WARNING, warning.severity);
         assertEquals("/test.luax", warning.resourcePath);
         assertEquals(20, warning.lineNumber);
         assertTrue(warning.message.contains("Unused variable"));
@@ -86,12 +86,12 @@ public class LuaNextTranspilerTest {
                         "/path/to/test.luax:20:5: warning: Unused variable x [W2001]";
 
         File sourceDir = new File("/path/to");
-        List<Issue> issues = parseErrors(output, sourceDir);
+        List<Stubs.Issue> issues = parseErrors(output, sourceDir);
 
         assertEquals(2, issues.size());
 
-        Issue error = issues.get(0);
-        assertEquals(Issue.Severity.ERROR, error.severity);
+        Stubs.Issue error = issues.get(0);
+        assertEquals(Stubs.Issue.Severity.ERROR, error.severity);
         assertEquals("/test.luax", error.resourcePath);
         assertEquals(15, error.lineNumber);
     }
@@ -100,7 +100,7 @@ public class LuaNextTranspilerTest {
     public void testParseErrorsEmptyOutput() {
         String output = "";
         File sourceDir = new File("/tmp");
-        List<Issue> issues = parseErrors(output, sourceDir);
+        List<Stubs.Issue> issues = parseErrors(output, sourceDir);
         assertEquals(0, issues.size());
     }
 
@@ -109,7 +109,7 @@ public class LuaNextTranspilerTest {
         String output = "error [/path/to/test.luax:10:1]: Some error\n\n\nwarning [/path/to/test.luax:15:1]: Another warning\n";
 
         File sourceDir = new File("/path/to");
-        List<Issue> issues = parseErrors(output, sourceDir);
+        List<Stubs.Issue> issues = parseErrors(output, sourceDir);
 
         assertEquals(2, issues.size());
     }
@@ -128,21 +128,21 @@ public class LuaNextTranspilerTest {
         assertNull(result);
     }
 
-    private Issue.Severity parseSeverity(String severity) {
+    private Stubs.Issue.Severity parseSeverity(String severity) {
         try {
             java.lang.reflect.Method method = LuaNextTranspiler.class.getDeclaredMethod("parseSeverity", String.class);
             method.setAccessible(true);
-            return (Issue.Severity) method.invoke(transpiler, severity);
+            return (Stubs.Issue.Severity) method.invoke(transpiler, severity);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    private List<Issue> parseErrors(String output, File sourceDir) {
+    private List<Stubs.Issue> parseErrors(String output, File sourceDir) {
         try {
             java.lang.reflect.Method method = LuaNextTranspiler.class.getDeclaredMethod("parseErrors", String.class, File.class);
             method.setAccessible(true);
-            return (List<Issue>) method.invoke(transpiler, output, sourceDir);
+            return (List<Stubs.Issue>) method.invoke(transpiler, output, sourceDir);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
