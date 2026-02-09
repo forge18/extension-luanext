@@ -116,6 +116,7 @@ luanext-defold-extension/
 - [x] Test error parsing for pretty format
 - [x] Test error parsing for simple format
 - [x] Test platform detection
+- [x] Run unit tests (14 tests pass)
 
 ---
 
@@ -129,7 +130,7 @@ luanext-defold-extension/
 - [x] Copy all type definitions to `luanext/stdlib/`
 - [x] Verify `ext.manifest` and `luanext.editor_script` are present
 - [x] Ensure README.md is complete
-- [ ] Run all unit tests (requires Java)
+- [x] Run all unit tests (14 tests pass)
 - [ ] Run integration tests on 3+ platforms
 
 ### Release Checklist
@@ -192,10 +193,9 @@ luanext-defold-extension/
 - LSP integration (luanext.editor_script)
 - All 10 Defold API type definitions
 - Metadata and documentation
-- Unit tests written
+- Unit tests (14/14 passing)
 
 ### Pending
 - Windows binary (cross-compile from macOS has issues - needs Linux VM or GitHub Actions)
-- Unit test execution (requires Java runtime + Defold bob-java dependency)
 - Integration tests (requires Defold editor + Java)
 - Release: version bump, tag, GitHub release, Defold Library submission
