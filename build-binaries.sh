@@ -33,6 +33,7 @@ ALL_PLATFORMS=(
     "x86_64-unknown-linux-gnu:x86_64-linux"
     "x86_64-apple-darwin:x86_64-macos"
     "aarch64-apple-darwin:arm64-macos"
+    "x86_64-pc-windows-gnu:x86_64-win32"
 )
 
 PLATFORMS=()
@@ -66,8 +67,8 @@ for i in "${!PLATFORMS[@]}"; do
         BUILD_CMD="cargo zigbuild --target x86_64-unknown-linux-gnu --release --bin luanext --bin luanext-lsp"
     elif [ "${PLATFORM}" = "aarch64-unknown-linux-gnu" ]; then
         BUILD_CMD="cargo zigbuild --target aarch64-unknown-linux-gnu --release --bin luanext --bin luanext-lsp"
-    elif [ "${PLATFORM}" = "x86_64-pc-windows-msvc" ]; then
-        BUILD_CMD="cargo zigbuild --target x86_64-pc-windows-msvc --release --bin luanext --bin luanext-lsp"
+    elif [ "${PLATFORM}" = "x86_64-pc-windows-gnu" ]; then
+        BUILD_CMD="cargo zigbuild --target x86_64-pc-windows-gnu --release --bin luanext --bin luanext-lsp"
     else
         BUILD_CMD="cargo build --release --bin luanext --bin luanext-lsp"
     fi

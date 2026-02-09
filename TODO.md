@@ -124,21 +124,19 @@ luanext-defold-extension/
 
 ### Build Checklist
 
-- [x] Build all platform binaries (Linux x86_64, macOS x86_64/arm64)
-- [ ] Build Windows x86_64 binary (cross-compile issue)
-- [ ] Compile Java plugin to `luanext/plugins/share/extension-luanext.jar`
+- [x] Build all platform binaries (Linux x86_64, macOS x86_64/arm64, Windows x86_64)
+- [x] Compile Java plugin to `luanext/plugins/share/extension-luanext.jar`
 - [x] Copy all type definitions to `luanext/stdlib/`
 - [x] Verify `ext.manifest` and `luanext.editor_script` are present
 - [x] Ensure README.md is complete
 - [x] Run all unit tests (14 tests pass)
-- [ ] Run integration tests on 3+ platforms
 
 ### Release Checklist
 
-- [ ] Update version number in `build.gradle` and `ext.manifest`
-- [ ] Update changelog
-- [ ] Create git tag: `git tag -a v1.0.0 -m "Release v1.0.0"`
-- [ ] Create GitHub release with `luanext/` directory as zip
+- [x] Update version number in `build.gradle` and `ext.manifest`
+- [x] Update changelog
+- [x] Create git tag: `git tag -a v1.0.0 -m "Release v1.0.0"`
+- [x] Create GitHub release with `luanext/` directory as zip
 - [ ] Submit to Defold Library
 
 ---
@@ -189,13 +187,13 @@ luanext-defold-extension/
 ### Completed ✓
 - Core Java implementation (LuaNextTranspiler.java)
 - Build configuration (build.gradle, build_plugin.sh, build-binaries.sh)
-- Rust binary builds for Linux x86_64, macOS x86_64/arm64
+- Rust binary builds for all 4 platforms (Linux x86_64, macOS x86_64/arm64, Windows x86_64)
 - LSP integration (luanext.editor_script)
 - All 10 Defold API type definitions
 - Metadata and documentation
 - Unit tests (14/14 passing)
+- GitHub release v1.0.0 published
 
 ### Pending
-- Windows binary (cross-compile from macOS has issues - needs Linux VM or GitHub Actions)
 - Integration tests (requires Defold editor + Java)
-- Release: version bump, tag, GitHub release, Defold Library submission
+- Submit to Defold Library
