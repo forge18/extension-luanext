@@ -7,18 +7,9 @@ version = '1.0.0'
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://maven.pkg.github.com/defold/defold"
-        credentials {
-            username = System.getenv("GITHUB_TOKEN")
-            password = ""
-        }
-    }
 }
 
 dependencies {
-    implementation 'com.dynamo.cr:bob-java:1.2.0'
-
     testImplementation 'junit:junit:4.13.2'
 }
 
@@ -40,7 +31,7 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-tasks.build.dependsOn ':makeBinaries'
+tasks.build.dependsOn makeBinaries
 
 task makeBinaries(type: Exec) {
     workingDir projectDir
