@@ -1,0 +1,12 @@
+compilerOptions:
+  target: "5.1"
+  outDir: "./"
+  sourceMap: true
+  strict: true
+  noEmitOnError: true
+
+include:
+  - "**/*.luax"
+
+exclude:
+  - "stdlib/**/*.luax"

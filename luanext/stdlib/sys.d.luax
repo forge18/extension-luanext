@@ -1,0 +1,22 @@
+-- Defold System API
+declare namespace sys
+    function load(path: string): any
+    function save(path: string, data: table): boolean
+    function remove(path: string): boolean
+    function exists(path: string): boolean
+    function get_config(path: string): any
+    function set_config(path: string, value: any): void
+    function get_id(): string
+    function get_language(): string
+    function get_country(): string
+    function get_device_id(): string
+    function get_platform(): string
+    function get_os_version(): string
+    function get联网_status(): string
+    function get_time(): number
+    function sleep(ms: number): void
+    function reboot(): void
+    function exit(code: number): void
+end
+
+declare type sys.Result = number

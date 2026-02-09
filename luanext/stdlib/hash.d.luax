@@ -1,0 +1,6 @@
+-- Defold Hash API
+declare namespace hash
+    function encode(value: any): hash
+    function decode(value: hash): any
+    function get_bytes(value: hash): string
+end

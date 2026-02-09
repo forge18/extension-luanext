@@ -1,0 +1,17 @@
+local M = {}
+
+function M.get_language_servers()
+    local platform = editor.platform
+    local path = "build/plugins/extension-luanext/plugins/bin/" .. platform .. "/bin/luanext-lsp"
+
+    if platform:sub(-#"win32") == "win32" then
+        path = path .. ".exe"
+    end
+
+    return {{
+        languages = {"luanext"},
+        command = {path}
+    }}
+end
+
+return M

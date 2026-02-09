@@ -1,0 +1,82 @@
+-- Defold GameObject API type definitions
+-- Generated from Defold API reference: https://www.defold.com/ref/stable/go/
+
+declare namespace go
+    function get(id: string | hash | url): go.Object
+    function get_position(id: hash | url): vmath.vector3
+    function set_position(id: string | hash | url, position: vmath.vector3 | vmath.vector4): void
+    function set_rotation(id: string | hash | url, rotation: vmath.quat | vmath.vector3 | vmath.vector4): void
+    function get_rotation(id: hash | url): vmath.quat
+    function set_scale(id: string | hash | url, scale: vmath.vector3 | vmath.vector4 | number): void
+    function get_scale(id: hash | url): vmath.vector3
+    function delete(id: string | hash | url, recursive: boolean?): void
+
+    function cancel(id: hash | url, playback: hash): void
+    function animate(id: hash | url, property: string, playback: go.Playback, to: number | vmath.vector3 | vmath.vector4, easing: go.Easing?, duration: number?, delay: number?): hash
+    function animate(id: hash | url, property: string, playback: go.Playback, animation: string): hash
+
+    function get(id: string | hash | url, property: string | hash): any
+    function set(id: string | hash | url, property: string | hash, value: any): boolean
+
+    function post(id: string | hash | url, message_id: string | hash, message: table): void
+    function post(msg_id: string | hash, ...): void
+
+    function acquire_input_focus(id: string | hash | url): boolean
+    function release_input_focus(id: string | hash | url): boolean
+
+    function factory(resource_id: string | hash): go.Factory
+end
+
+declare type go.Object = { id: hash }
+declare type go.Factory = { resource: hash }
+
+declare type go.Playback =
+    "LOOP_FORWARD" |
+    "LOOP_BACKWARD" |
+    "LOOP_PINGPONG" |
+    "ONCE_FORWARD" |
+    "ONCE_BACKWARD" |
+    "ONCE_PINGPONG"
+
+declare type go.Easing =
+    "LINEAR" |
+    "INSINE" |
+    "OUTSINE" |
+    "INOUTSINE" |
+    "OUTINSINE" |
+    "INQUAD" |
+    "OUTQUAD" |
+    "INOUTQUAD" |
+    "OUTINQUAD" |
+    "INCUBIC" |
+    "OUTCUBIC" |
+    "INOUTCUBIC" |
+    "OUTINCUBIC" |
+    "INQUART" |
+    "OUTQUART" |
+    "INOUTQUART" |
+    "OUTINQUART" |
+    "INQUINT" |
+    "OUTQUINT" |
+    "INOUTQUINT" |
+    "OUTINQUINT" |
+    "INEXPO" |
+    "OUTEXPO" |
+    "INOUTEXPO" |
+    "OUTINEXPO" |
+    "INCIRC" |
+    "OUTCIRC" |
+    "INOUTCIRC" |
+    "OUTINCIRC" |
+    "INBACK" |
+    "OUTBACK" |
+    "INOUTBACK" |
+    "OUTINBACK" |
+    "INELASTIC" |
+    "OUTELASTIC" |
+    "INOUTELASTIC" |
+    "OUTINELASTIC" |
+    "INBOUNCE" |
+    "OUTBOUNCE" |
+    "INOUTBOUNCE" |
+    "OUTINBOUNCE"

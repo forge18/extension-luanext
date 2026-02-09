@@ -1,0 +1,88 @@
+-- Defold GUI API
+declare namespace gui
+    function new_scene(): gui.Scene
+    function delete_scene(scene: gui.Scene): void
+    function load_scene(scene_name: string): void
+    function unload_scene(scene_name: string): void
+
+    function get_root(scene: gui.Scene): gui.Node
+    function find_node(scene: gui.Scene, id: string | hash): gui.Node
+    function get_node(id: string | hash): gui.Node
+
+    function set_enabled(node: gui.Node, enabled: boolean): void
+    function is_enabled(node: gui.Node): boolean
+
+    function set_alpha(node: gui.Node, alpha: number): void
+    function get_alpha(node: gui.Node): number
+
+    function set_color(node: gui.Node, color: vmath.vector4): void
+    function get_color(node: gui.Node): vmath.vector4
+
+    function set_outline(node: gui.Node, color: vmath.vector4): void
+
+    function set_scale(node: gui.Node, scale: vmath.vector3): void
+    function get_scale(node: gui.Node): vmath.vector3
+
+    function set_rotation(node: gui.Node, rotation: vmath.vector3): void
+    function get_rotation(node: gui.Node): vmath.vector3
+
+    function set_position(node: gui.Node, position: vmath.vector3): void
+    function get_position(node: gui.Node): vmath.vector3
+
+    function set_size(node: gui.Node, size: vmath.vector3): void
+    function get_size(node: gui.Node): vmath.vector3
+
+    function set_pivot(node: gui.Node, pivot: gui.Pivot): void
+    function get_pivot(node: gui.Node): gui.Pivot
+
+    function set_anchor(node: gui.Node, anchor: gui.Anchor): void
+    function get_anchor(node: gui.Node): gui.Anchor
+
+    function set_layer(node: gui.Node, layer: string | hash): void
+    function get_layer(node: gui.Node): hash
+
+    function set_parent(node: gui.Node, parent: gui.Node?, keep_world_transform: boolean?): void
+    function get_parent(node: gui.Node): gui.Node
+
+    function remove_node(node: gui.Node): void
+
+    function animate(node: gui.Node, property: string, to: any, easing: go.Easing, duration: number, delay: number?, callback?: function): void
+
+    function play_sound(node: gui.Node, sound: string | hash): void
+
+    function acquire_input_focus(node: gui.Node): void
+    function release_input_focus(node: gui.Node): void
+
+    function create_texture(id: string | hash, path: string): void
+    function delete_texture(id: string | hash): void
+end
+
+declare type gui.Node = any
+declare type gui.Scene = any
+
+declare type gui.Pivot =
+    "NONE" |
+    "CENTER" |
+    "N" |
+    "NE" |
+    "E" |
+    "SE" |
+    "S" |
+    "SW" |
+    "W" |
+    "NW"
+
+declare type gui.Anchor =
+    "NONE" |
+    "CENTER" |
+    "N" |
+    "NE" |
+    "E" |
+    "SE" |
+    "S" |
+    "SW" |
+    "W" |
+    "NW" |
+    "STRETCH" |
+    "STRETCH_H" |
+    "STRETCH_V"

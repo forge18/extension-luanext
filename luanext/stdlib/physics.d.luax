@@ -1,0 +1,30 @@
+-- Defold Physics API
+declare namespace physics
+    function create_world(gravity: vmath.vector3?, debug?: boolean): physics.World
+    function destroy_world(world: physics.World): void
+
+    function get_world_gravity(world: physics.World): vmath.Vector3
+    function set_world_gravity(world: physics.World, gravity: vmath.Vector3): void
+
+    function get_world_linear_damping(world: physics.World): number
+    function set_world_linear_damping(world: physics.World, damping: number): void
+
+    function get_world_angular_damping(world: physics.World): number
+    function set_world_angular_damping(world: physics.World, damping: number): void
+
+    function get_stats(world: physics.World): table
+
+    function ray_cast(from: vmath.Vector3, to: vmath.Vector3, groups?: table): physics.RayCastResult
+
+    function add_collision_shape(world: physics.World, shape: physics.Shape, group?: number, mask?: number): hash
+    function remove_collision_shape(world: physics.World, shape_id: hash): void
+end
+
+declare type physics.World = any
+declare type physics.Shape = any
+declare type physics.RayCastResult = {
+    fraction: number,
+    normal: vmath.Vector3,
+    position: vmath.Vector3,
+    shape: physics.Shape
+}

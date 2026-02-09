@@ -1,0 +1,11 @@
+-- Defold Messaging API
+declare namespace msg
+    function post(url: string | url | hash, message_id: string | hash, message: table): void
+    function url(): url
+end
+
+declare type url = {
+    socket: string,
+    path: string,
+    fragment: string
+}

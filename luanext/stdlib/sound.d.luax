@@ -1,0 +1,11 @@
+-- Defold Sound API
+declare namespace sound
+    function play(sound_id: string | hash, options?: table): number
+    function stop(sound_id: string | hash): void
+    function stop_group(group: string | hash): void
+    function set_group_gain(group: string | hash, gain: number): void
+    function set_gain(sound_id: string | hash, gain: number): void
+    function set_pitch(sound_id: string | hash, pitch: number): void
+    function is_playing(sound_id: string | hash): boolean
+    function unload(sound_id: string | hash): void
+end

@@ -1,0 +1,48 @@
+-- Defold Vector Math API
+declare namespace vmath
+    function vector3(x: number?, y: number?, z: number?): vmath.vector3
+    function vector3(v: vmath.vector3): vmath.vector3
+
+    function vector4(x: number?, y: number?, z: number?, w: number?): vmath.vector4
+    function vector4(v: vmath.vector4): vmath.vector4
+
+    function quat(): vmath.quat
+    function quat(x: number, y: number, z: number, w: number): vmath.quat
+    function quat(q: vmath.quat): vmath.quat
+
+    function matrix4(): vmath.matrix4
+    function matrix4(m: vmath.matrix4): vmath.matrix4
+
+    function normalize(v: vmath.vector3 | vmath.vector4): vmath.vector3 | vmath.vector4
+    function length(v: vmath.vector3 | vmath.vector4): number
+    function dot(v1: vmath.vector3 | vmath.vector4, v2: vmath.vector3 | vmath.vector4): number
+    function cross(v1: vmath.vector3, v2: vmath.vector3): vmath.vector3
+    function lerp(v1: vmath.vector3 | vmath.vector4, v2: vmath.vector3 | vmath.vector4, t: number): vmath.vector3 | vmath.vector4
+end
+
+declare type vmath.vector3 = {
+    x: number,
+    y: number,
+    z: number
+}
+
+declare type vmath.vector4 = {
+    x: number,
+    y: number,
+    z: number,
+    w: number
+}
+
+declare type vmath.quat = {
+    x: number,
+    y: number,
+    z: number,
+    w: number
+}
+
+declare type vmath.matrix4 = {
+    c0: vmath.vector4,
+    c1: vmath.vector4,
+    c2: vmath.vector4,
+    c3: vmath.vector4
+}

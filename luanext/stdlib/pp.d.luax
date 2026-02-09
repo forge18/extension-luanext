@@ -1,0 +1,12 @@
+-- Defold Particle FX API
+declare namespace pp
+    function load(resource_path: string): hash
+    function create(resource_id: string | hash, options?: table): hash
+    function destroy(effect_id: string | hash): void
+    function reset(effect_id: string | hash): void
+    function set_constant(effect_id: string | hash, constant: string | hash, value: number): void
+    function set_emission_rate(effect_id: string | hash, rate: number): void
+    function play(effect_id: string | hash): void
+    function stop(effect_id: string | hash, options?: table): void
+    function is_playing(effect_id: string | hash): boolean
+end

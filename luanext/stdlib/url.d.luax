@@ -1,0 +1,14 @@
+-- Defold URL API
+declare namespace url
+    function new(socket: string, path?: string, fragment?: string): url
+    function set_socket(url: url, socket: string): void
+    function set_path(url: url, path: string): void
+    function set_fragment(url: url, fragment: string): void
+    function query(url: url): table
+end
+
+declare type url = {
+    socket: string,
+    path: string,
+    fragment: string
+}
